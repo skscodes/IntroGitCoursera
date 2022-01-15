@@ -1,1 +1,105 @@
+This file contains basic GIT commands used as part of Coursera Qwiklabs assessment to do the following:
+* Create a git repository
+* Git clone to create a local copy on your local machine
+* Add a file to this repository
+* Create snapshot/snapshots of the local repository
+* Push the snapshots to the main branch
+
+student@linux-instance:~$ git clone https://github.com/skscodes/IntroGitCoursera.git
+Cloning into 'IntroGitCoursera'...
+remote: Enumerating objects: 3, done.
+remote: Counting objects: 100% (3/3), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), done.
+
+student@linux-instance:~$ ls
+IntroGitCoursera
+student@linux-instance:~$ cd IntroGitCoursera/
+student@linux-instance:~/IntroGitCoursera$ ls
+README.md
+
+student@linux-instance:~/IntroGitCoursera$ git config --global user.name "skscodes"
+student@linux-instance:~/IntroGitCoursera$ git config --global user.email "<user Email>"
+student@linux-instance:~/IntroGitCoursera$ nano README.md
+student@linux-instance:~/IntroGitCoursera$ git status
+On branch main
+Your branch is up-to-date with 'origin/main'.
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   README.md
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+
+student@linux-instance:~/IntroGitCoursera$ git add README.md
+student@linux-instance:~/IntroGitCoursera$ git commit
+[main 9d80369] Updating the README file.
+ 1 file changed, 1 insertion(+)
+student@linux-instance:~/IntroGitCoursera$ git status
+On branch main
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+nothing to commit, working tree clean
+
+
+student@linux-instance:~/IntroGitCoursera$ git push origin main
+Username for 'https://github.com': skscodes
+Password for 'https://skscodes@github.com':
+Counting objects: 3, done.
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 397 bytes | 0 bytes/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To https://github.com/skscodes/IntroGitCoursera.git
+   8259e20..9d80369  main -> main
+
+
+student@linux-instance:~/IntroGitCoursera$ nano example.py
+student@linux-instance:~/IntroGitCoursera$ git add example.py
+student@linux-instance:~/IntroGitCoursera$ git commit
+Aborting commit due to empty commit message.
+student@linux-instance:~/IntroGitCoursera$ git commit -m " Adding new file example.py"
+[main 1720031]  Adding new file example.py
+ 1 file changed, 3 insertions(+)
+ create mode 100644 example.py
+ 
+studen@linux-instance:~/IntroGitCoursera$ git push origin main
+Username for 'https://github.com': skscodes
+Password for 'https://skscodes@github.com':
+To https://github.com/skscodes/IntroGitCoursera.git
+ ! [rejected]        main -> main (fetch first)
+error: failed to push some refs to 'https://github.com/skscodes/IntroGitCoursera.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+
+student@linux-instance:~/IntroGitCoursera$ git pull origin main
+remote: Enumerating objects: 4, done.
+remote: Counting objects: 100% (4/4), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), done.
+From https://github.com/skscodes/IntroGitCoursera
+ * branch            main       -> FETCH_HEAD
+   9d80369..466595f  main       -> origin/main
+Merge made by the 'recursive' strategy.
+ webexample.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 webexample.txt
+ 
+student@linux-instance:~/IntroGitCoursera$ git push origin main
+Username for 'https://github.com': skscodes
+Password for 'https://skscodes@github.com':
+Counting objects: 5, done.
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (5/5), 671 bytes | 0 bytes/s, done.
+Total 5 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), done.
+To https://github.com/skscodes/IntroGitCoursera.git
+   466595f..560e65f  main -> main
 
